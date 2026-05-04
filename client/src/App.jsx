@@ -1,24 +1,54 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios' // Make sure you've run: npm install axios
+import './App.css'
+import { useState } from 'react'
+/*
+1. Create Components for Recipe and Selector
+2. Send data into compoents to display them
+3. Make Recipe selectors into a list of components to display all of them
+*/
+
+
+
+// Recipe Component
+
+
+// Recipe Selector Component
+
 
 function App() {
-  const [greeting, setGreeting] = useState("Loading...")
 
-  useEffect(() => {
-    axios.get('http://localhost:5050/api/hello')
-      .then(res => setGreeting(res.data.message))
-      .catch(err => {
-        console.error("Error fetching data:", err);
-        setGreeting("Server is not responding 😢");
-      })
-  }, [])
-
+  const [recipes, setRecipes] = useState([{"name": "pasta", "instructions": "do the thing", "ingrediant": ["thing1", "thing2"]}])
+  const [currentRecipe, setCurrentRecipe] = useState(0)
+  
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>MERN Stack Test</h1>
-      <p>Message from Backend: <strong>{greeting}</strong></p>
+    <div className="container">
+      <div className="sidebar">
+        <h2>Recipes</h2>
+        <ul>
+          <li>food1</li>
+          <li>food2</li>
+          <li>food3</li>
+        </ul>
+        <button>Add New</button>
+      </div>
+
+      <div className="main">
+        <h2>Instructions</h2>
+        <textarea placeholder="Write instructions here..." />
+      </div>
+
+      <div className="ingredients">
+        <h2>Ingredients</h2>
+        <textarea placeholder="List ingredients..." />
+      </div>
+
+      <div className="footer">
+        <button>Save</button>
+      </div>
+
     </div>
   )
 }
+
+
 
 export default App
