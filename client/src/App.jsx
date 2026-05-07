@@ -26,7 +26,6 @@ function Recipe(props) {
     )
   }
 
-
 // Recipe Selector Component
 function RecipeSelector(props) {
   return (
