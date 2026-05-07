@@ -7,11 +7,34 @@ import { useState } from 'react'
 */
 
 
-
 // Recipe Component
+function Recipe(props) {
+  return (
+    <div>
+      <h2>{props.recipe.name}</h2>
+
+      <h3>Instructions</h3>
+      <p>{props.recipe.instructions}</p>
+
+      <h3>Ingredients</h3>
+      <ul>
+        {props.recipe.ingrediant.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+    )
+  }
 
 
 // Recipe Selector Component
+function RecipeSelector(props) {
+  return (
+    <li onClick={() => props.setCurrentRecipe(props.index)}>
+      {props.recipe.name}
+    </li>
+  )
+}
 
 
 function App() {
@@ -24,9 +47,14 @@ function App() {
       <div className="sidebar">
         <h2>Recipes</h2>
         <ul>
-          <li>food1</li>
-          <li>food2</li>
-          <li>food3</li>
+        {recipes.map((recipe, index) => (
+           <RecipeSelector
+           key={index}
+           recipe={recipe}
+          index={index}
+          setCurrentRecipe={setCurrentRecipe}
+         />
+      ))}
         </ul>
         <button>Add New</button>
       </div>
