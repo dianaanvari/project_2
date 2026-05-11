@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const app = express();
 
+const Recipe = require("./models/Recipe");
+
 // Middleware
 app.use(cors());
 app.use(express.json());

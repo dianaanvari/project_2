@@ -35,7 +35,6 @@ function RecipeSelector(props) {
   )
 }
 
-
 function App() {
 
   const [recipes, setRecipes] = useState([{"name": "pasta", "instructions": "do the thing", "ingrediant": ["thing1", "thing2"]}])
